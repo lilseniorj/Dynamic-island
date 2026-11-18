@@ -8,20 +8,36 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='22' width='52' height='20' rx='10' fill='%23000' stroke='%23c46bff' stroke-width='3'/%3E%3Ccircle cx='45' cy='32' r='4' fill='%23302a5a'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+  <!-- Iconos reutilizables -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 2.9c.6-.2 1.3 0 1.6.6l1.6 3.3c.3.6.1 1.3-.4 1.7L8 9.6a12 12 0 0 0 6.4 6.4l1.1-1.4c.4-.5 1.1-.7 1.7-.4l3.3 1.6c.6.3.8 1 .6 1.6l-.7 2.1c-.3.8-1 1.4-1.9 1.4A16.5 16.5 0 0 1 3 5.4c0-.9.6-1.6 1.4-1.9l2.2-.6Z"/></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M12 13V9M9.5 2.5h5M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M20 3.2v12.3a3.3 3.3 0 1 1-2-3V7.3l-8 1.6v8.6a3.3 3.3 0 1 1-2-3V5.4a1 1 0 0 1 .8-1l10-2a1 1 0 0 1 1.2.8Z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 2 4.5 13.6h6.2L9.8 22l9-11.6h-6.2l.9-8.4Z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M12 2.5a6 6 0 0 0-6 6v3.8l-1.6 2.9a1 1 0 0 0 .9 1.5h13.4a1 1 0 0 0 .9-1.5L18 12.3V8.5a6 6 0 0 0-6-6Zm-2.6 16.2a2.7 2.7 0 0 0 5.2 0H9.4Z"/></symbol>
+    <symbol id="i-airpods" viewBox="0 0 48 48"><path d="M14 8a8 8 0 0 0-8 8c0 4.3 3 7.6 7 7.8.8 0 1.5.7 1.5 1.5V38a2.75 2.75 0 0 0 5.5 0V15.5C20 11.4 17.4 8 14 8Zm20 0a8 8 0 0 1 8 8c0 4.3-3 7.6-7 7.8-.8 0-1.5.7-1.5 1.5V38a2.75 2.75 0 0 1-5.5 0V15.5C28 11.4 30.6 8 34 8Z"/></symbol>
+    <symbol id="i-face" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M4 15V9a5 5 0 0 1 5-5h6M33 4h6a5 5 0 0 1 5 5v6M44 33v6a5 5 0 0 1-5 5h-6M15 44H9a5 5 0 0 1-5-5v-6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="m6.5 6.5 11 11m0-11-11 11"/></symbol>
+    <symbol id="i-play" viewBox="0 0 20 20"><path d="M5 2.8v14.4a1.2 1.2 0 0 0 1.8 1l11.6-7.2a1.2 1.2 0 0 0 0-2L6.8 1.8A1.2 1.2 0 0 0 5 2.8Z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 20 20"><rect x="4" y="2" width="4.2" height="16" rx="1.4"/><rect x="11.8" y="2" width="4.2" height="16" rx="1.4"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3L4.5 9M4.5 4v5h5"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2.5A3.5 3.5 0 0 0 8.5 6v6a3.5 3.5 0 0 0 7 0V6A3.5 3.5 0 0 0 12 2.5Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3.5"/></symbol>
+  </svg>
+
   <main class="stage">
     <div class="phone" data-island="idle" data-playing="false">
-      <div class="buttons" aria-hidden="true">
+      <div class="buttons">
         <div class="left">
-          <span class="button action"></span>
+          <span class="button action" data-hw="action" title="Botón de acción: modo silencio"></span>
           <span class="button"></span>
           <span class="button"></span>
         </div>
-        <div class="right"><span class="button"></span></div>
+        <div class="right"><span class="button" data-hw="side" title="Botón lateral: Face ID"></span></div>
       </div>
 
       <div class="screen-container">
@@ -47,6 +63,10 @@
         <!-- Pantalla de bloqueo -->
         <div class="lock">
           <div class="lock-clock" aria-hidden="true">
+            <svg class="lock-icon" viewBox="0 0 24 24">
+              <path class="lock-shackle" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M7.5 11V8a4.5 4.5 0 0 1 9 0v3"/>
+              <rect x="5" y="10.5" width="14" height="11" rx="2.6"/>
+            </svg>
             <p class="lock-date" data-date>&nbsp;</p>
             <p class="lock-time" data-time>9:41</p>
           </div>
@@ -66,27 +86,27 @@
         <div class="status-ear">
           <span class="status-time" data-time>9:41</span>
         </div>
-        <div class="status-ear">
+        <div class="status-ear status-ear--right">
           <svg class="icon-signal" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
           <svg class="icon-wifi" viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.3 2.5l1.2-1.3A10.7 10.7 0 0 0 8 .4 10.7 10.7 0 0 0 .5 3.4l1.2 1.3A9 9 0 0 1 8 2.2Z"/><path d="M8 5.8c1.4 0 2.7.5 3.7 1.4l1.2-1.3A7.2 7.2 0 0 0 8 4a7.2 7.2 0 0 0-4.9 1.9l1.2 1.3c1-.9 2.3-1.4 3.7-1.4Z"/><path d="M8 11.6 10.3 9.1A3.4 3.4 0 0 0 8 8.2c-.9 0-1.7.3-2.3.9L8 11.6Z"/></svg>
-          <svg class="icon-battery" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.6" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect class="battery-level" x="2" y="2" width="16.4" height="9" rx="2.2"/><path d="M25 4.5v4a2.2 2.2 0 0 0 0-4Z" fill-opacity=".45"/></svg>
+          <svg class="icon-battery" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.6" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect class="battery-level" x="2" y="2" width="16.4" height="9" rx="2.2"/><path d="M25 4.5v4a2.2 2.2 0 0 0 0-4Z" fill-opacity=".45"/><path class="battery-bolt" d="M12.8 2.6 8.6 7.4h3l-.6 3 4.2-4.8h-3l.6-3Z"/></svg>
         </div>
       </div>
 
       <div class="island-backdrop" aria-hidden="true"></div>
 
-      <!-- Dynamic Island: idle → compact → expanded -->
+      <!-- ================= Dynamic Island ================= -->
       <div class="island-layer">
         <div class="island" id="island" role="group" aria-label="Dynamic Island">
-          <button class="island-toggle" type="button" aria-expanded="false" aria-controls="island-expanded" aria-label="Dynamic Island. Abrir reproductor"></button>
+          <button class="island-toggle" type="button" aria-expanded="false" aria-label="Dynamic Island"></button>
           <span class="island-camera" aria-hidden="true"><span></span></span>
 
-          <div class="compact-view" aria-hidden="true">
+          <!-- Actividad: música -->
+          <div class="view view--compact" data-view="music:compact" aria-hidden="true">
             <div class="art art--compact" data-art></div>
             <div class="eq eq--compact"><i></i><i></i><i></i><i></i></div>
           </div>
-
-          <div class="expanded-view" id="island-expanded" inert>
+          <div class="view view--expanded music-view" data-view="music:expanded" aria-label="Reproductor">
             <div class="player-top">
               <div class="art art--expanded" data-art></div>
               <div class="track-meta">
@@ -95,7 +115,6 @@
               </div>
               <div class="eq eq--expanded" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
             </div>
-
             <div class="progress-row">
               <span class="time" data-elapsed>0:00</span>
               <div class="progress" role="slider" tabindex="0" aria-label="Posición de la canción" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0">
@@ -103,41 +122,162 @@
               </div>
               <span class="time time--remaining" data-remaining>-0:00</span>
             </div>
-
             <div class="controls">
               <button class="ctrl" type="button" aria-label="Anterior" data-prev>
                 <svg class="icon-skip" viewBox="0 0 32 20" aria-hidden="true"><path d="M15 2.6v14.8a1 1 0 0 1-1.6.8L3.3 10.8a1 1 0 0 1 0-1.6l10.1-7.4a1 1 0 0 1 1.6.8Zm14 0v14.8a1 1 0 0 1-1.6.8l-10.1-7.4a1 1 0 0 1 0-1.6l10.1-7.4a1 1 0 0 1 1.6.8Z"/></svg>
               </button>
-              <button class="ctrl ctrl--play" type="button" aria-label="Reproducir" data-play>
-                <svg class="icon-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.8v14.4a1.2 1.2 0 0 0 1.8 1l11.6-7.2a1.2 1.2 0 0 0 0-2L6.8 1.8A1.2 1.2 0 0 0 5 2.8Z"/></svg>
-                <svg class="icon-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="2" width="4.2" height="16" rx="1.4"/><rect x="11.8" y="2" width="4.2" height="16" rx="1.4"/></svg>
+              <button class="ctrl ctrl--play" type="button" aria-label="Reproducir" data-play data-autofocus>
+                <svg class="icon-play" aria-hidden="true"><use href="#i-play"/></svg>
+                <svg class="icon-pause" aria-hidden="true"><use href="#i-pause"/></svg>
               </button>
               <button class="ctrl" type="button" aria-label="Siguiente" data-next>
                 <svg class="icon-skip" viewBox="0 0 32 20" aria-hidden="true"><path d="M3 2.6v14.8a1 1 0 0 0 1.6.8l10.1-7.4a1 1 0 0 0 0-1.6L4.6 1.8A1 1 0 0 0 3 2.6Zm14 0v14.8a1 1 0 0 0 1.6.8l10.1-7.4a1 1 0 0 0 0-1.6L18.6 1.8A1 1 0 0 0 17 2.6Z"/></svg>
               </button>
             </div>
           </div>
+
+          <!-- Actividad: temporizador -->
+          <div class="view view--compact" data-view="timer:compact" aria-hidden="true">
+            <span class="timer-ring" data-timer-ring></span>
+            <span class="timer-compact" data-timer-time>1:00</span>
+          </div>
+          <div class="view view--expanded timer-view" data-view="timer:expanded" aria-label="Temporizador">
+            <div class="timer-actions">
+              <button class="round-btn round-btn--orange" type="button" data-timer-toggle data-autofocus aria-label="Pausar temporizador">
+                <svg class="i-pause" aria-hidden="true"><use href="#i-pause"/></svg>
+                <svg class="i-play" aria-hidden="true"><use href="#i-play"/></svg>
+                <svg class="i-repeat" aria-hidden="true"><use href="#i-repeat"/></svg>
+              </button>
+              <button class="round-btn round-btn--gray" type="button" data-timer-cancel aria-label="Cancelar temporizador">
+                <svg aria-hidden="true"><use href="#i-x"/></svg>
+              </button>
+            </div>
+            <div class="timer-readout">
+              <span class="timer-label" data-timer-label>Temporizador</span>
+              <span class="timer-big" data-timer-time>1:00</span>
+            </div>
+          </div>
+
+          <!-- Actividad: llamada -->
+          <div class="view view--compact call-compact" data-view="call:compact" aria-hidden="true">
+            <span class="call-lead">
+              <span class="avatar avatar--sm">M</span>
+              <span class="call-lead-active"><svg><use href="#i-phone"/></svg><span data-call-duration>0:00</span></span>
+            </span>
+            <span class="call-trail">
+              <span class="call-ringing"><svg><use href="#i-phone"/></svg></span>
+              <span class="eq eq--call"><i></i><i></i><i></i><i></i></span>
+            </span>
+          </div>
+          <div class="view view--expanded call-view" data-view="call:expanded" aria-label="Llamada">
+            <span class="avatar" aria-hidden="true">M</span>
+            <div class="call-meta">
+              <span class="call-status" data-call-status>Llamada móvil</span>
+              <span class="call-name">Mamá</span>
+            </div>
+            <div class="call-actions">
+              <button class="round-btn round-btn--gray call-mute" type="button" data-call-mute aria-pressed="false" aria-label="Silenciar micrófono">
+                <svg aria-hidden="true"><use href="#i-mic"/></svg>
+              </button>
+              <button class="round-btn round-btn--red" type="button" data-call-end aria-label="Rechazar llamada">
+                <svg class="i-hangup" aria-hidden="true"><use href="#i-phone"/></svg>
+              </button>
+              <button class="round-btn round-btn--green call-accept" type="button" data-call-accept data-autofocus aria-label="Contestar llamada">
+                <svg aria-hidden="true"><use href="#i-phone"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Alertas del sistema (temporales) -->
+          <div class="view view--alert alert-charging" data-view="alert:charging" aria-hidden="true">
+            <span class="alert-title">Cargando</span>
+            <span class="alert-charge"><span data-charge-pct>82 %</span><svg class="i-bolt"><use href="#i-bolt"/></svg></span>
+          </div>
+          <div class="view view--alert alert-silent" data-view="alert:silent" aria-hidden="true">
+            <span class="bell-chip"><svg><use href="#i-bell"/></svg></span>
+            <span class="alert-title" data-silent-label>Silencio</span>
+          </div>
+          <div class="view view--alert alert-airpods" data-view="alert:airpods" aria-hidden="true">
+            <svg class="airpods-glyph"><use href="#i-airpods"/></svg>
+            <span class="alert-stack">
+              <span class="alert-sub">Conectados</span>
+              <span class="alert-title">AirPods Pro</span>
+            </span>
+            <span class="battery-ring" data-pods-ring>
+              <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" pathLength="100"/><circle class="ring-fill" cx="18" cy="18" r="15" pathLength="100"/></svg>
+              <span data-pods-pct>85</span>
+            </span>
+          </div>
+          <div class="view view--alert alert-faceid" data-view="alert:faceid" aria-hidden="true">
+            <svg class="face" viewBox="0 0 48 48">
+              <use href="#i-face"/>
+              <g class="face-features" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 17v4M31 17v4M24 17v8h-2M17 32c4 3.5 10 3.5 14 0"/>
+              </g>
+              <path class="face-check" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" pathLength="1" d="m15 25 6.5 6.5L34 17"/>
+            </svg>
+          </div>
         </div>
+
+        <!-- Burbuja "minimal": segunda actividad simultánea -->
+        <button class="island-minimal" type="button" aria-label="Segunda actividad" tabindex="-1" aria-hidden="true">
+          <span class="minimal-icon minimal-music art" data-art></span>
+          <span class="minimal-icon minimal-timer timer-ring" data-timer-ring></span>
+          <span class="minimal-icon minimal-call"><svg><use href="#i-phone"/></svg></span>
+        </button>
       </div>
 
       <div class="home-indicator" aria-hidden="true"></div>
     </div>
 
-    <fieldset class="palette">
-      <legend class="sr-only">Color del iPhone</legend>
-      <label class="swatch purple" title="Deep Purple">
-        <input type="radio" name="theme" id="deep-purple" checked><span class="sr-only">Deep Purple</span>
-      </label>
-      <label class="swatch gold-swatch" title="Gold">
-        <input type="radio" name="theme" id="gold"><span class="sr-only">Gold</span>
-      </label>
-      <label class="swatch black-swatch" title="Space Black">
-        <input type="radio" name="theme" id="space-black"><span class="sr-only">Space Black</span>
-      </label>
-      <label class="swatch silver-swatch" title="Silver">
-        <input type="radio" name="theme" id="silver"><span class="sr-only">Silver</span>
-      </label>
-    </fieldset>
+    <!-- Panel lateral: color y actividades de demostración -->
+    <aside class="dock">
+      <fieldset class="palette">
+        <legend class="dock-title">Acabado</legend>
+        <div class="swatches">
+          <label class="swatch purple" title="Deep Purple">
+            <input type="radio" name="theme" id="deep-purple" checked><span class="sr-only">Deep Purple</span>
+          </label>
+          <label class="swatch gold-swatch" title="Gold">
+            <input type="radio" name="theme" id="gold"><span class="sr-only">Gold</span>
+          </label>
+          <label class="swatch black-swatch" title="Space Black">
+            <input type="radio" name="theme" id="space-black"><span class="sr-only">Space Black</span>
+          </label>
+          <label class="swatch silver-swatch" title="Silver">
+            <input type="radio" name="theme" id="silver"><span class="sr-only">Silver</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <section class="demo" aria-labelledby="demo-title">
+        <h2 class="dock-title" id="demo-title">Actividades</h2>
+        <div class="demo-grid">
+          <button class="demo-btn" type="button" data-demo="music" aria-pressed="false" style="--tint:#d0459b">
+            <span class="demo-icon"><svg aria-hidden="true"><use href="#i-note"/></svg></span><span>Música</span>
+          </button>
+          <button class="demo-btn" type="button" data-demo="timer" aria-pressed="false" style="--tint:#ff9f0a">
+            <span class="demo-icon"><svg aria-hidden="true"><use href="#i-timer"/></svg></span><span>Temporizador</span>
+          </button>
+          <button class="demo-btn" type="button" data-demo="call" aria-pressed="false" style="--tint:#30d158">
+            <span class="demo-icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span>Llamada</span>
+          </button>
+          <button class="demo-btn" type="button" data-demo="charge" aria-pressed="false" style="--tint:#34c759">
+            <span class="demo-icon"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span><span>Cargador</span>
+          </button>
+          <button class="demo-btn" type="button" data-demo="silent" aria-pressed="false" style="--tint:#ff453a">
+            <span class="demo-icon"><svg aria-hidden="true"><use href="#i-bell"/></svg></span><span>Silencio</span>
+          </button>
+          <button class="demo-btn" type="button" data-demo="airpods" style="--tint:#8e8e93">
+            <span class="demo-icon"><svg aria-hidden="true"><use href="#i-airpods"/></svg></span><span>AirPods</span>
+          </button>
+          <button class="demo-btn" type="button" data-demo="faceid" style="--tint:#0a84ff">
+            <span class="demo-icon"><svg aria-hidden="true"><use href="#i-face"/></svg></span><span>Face ID</span>
+          </button>
+        </div>
+        <p class="demo-hint">Toca la isla para abrirla. Desliza hacia un lado para ocultarla y hacia arriba para cerrarla.</p>
+      </section>
+    </aside>
 
     <p class="sr-only" aria-live="polite" data-announcer></p>
   </main>
