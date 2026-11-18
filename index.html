@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <title>iPhone Dynamic Island | LilSeniorJ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Los radios deben ser hermanos de .stage para que los selectores CSS funcionen -->
+  <input type="radio" name="theme" id="deep-purple" checked>
+  <input type="radio" name="theme" id="gold">
+  <input type="radio" name="theme" id="space-black">
+  <input type="radio" name="theme" id="silver">
+
+  <main class="stage">
+    <div class="phone">
+      <div class="buttons" aria-hidden="true">
+        <div class="left">
+          <span class="button action"></span>
+          <span class="button"></span>
+          <span class="button"></span>
+        </div>
+        <div class="right"><span class="button"></span></div>
+      </div>
+
+      <div class="screen-container">
+        <div class="bg">
+          <div class="theme-wallpaper deep-purple">
+            <div class="section top-orb"><div class="glow"></div></div>
+            <div class="section bottom-orb"><div class="glow"></div></div>
+          </div>
+          <div class="theme-wallpaper gold">
+            <div class="section top-orb"><div class="glow"></div></div>
+            <div class="section bottom-orb"><div class="glow"></div></div>
+          </div>
+          <div class="theme-wallpaper space-black">
+            <div class="section top-orb"><div class="glow"></div></div>
+            <div class="section bottom-orb"><div class="glow"></div></div>
+          </div>
+          <div class="theme-wallpaper silver">
+            <div class="section top-orb"><div class="glow"></div></div>
+            <div class="section bottom-orb"><div class="glow"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notch-container" tabindex="0" aria-label="Dynamic Island. Pasa el cursor para expandir">
+        <div class="notch">
+          <div class="island-camera" aria-hidden="true"><span></span></div>
+          <div class="island-sensor" aria-hidden="true"></div>
+
+          <div class="content">
+            <div class="player-top">
+              <div class="album-art"></div>
+
+              <div class="track-info">
+                <span class="artist">LilSeniorJ</span>
+                <span class="song">Now Playing</span>
+              </div>
+
+              <div class="equalizer">
+                <i></i><i></i><i></i><i></i>
+              </div>
+            </div>
+
+            <div class="bar">
+              <span class="elapsed">1:20</span>
+              <div class="duration">
+                <span></span>
+              </div>
+              <span class="remaining">-1:48</span>
+            </div>
+
+            <div class="player-controls">
+              <button class="control-button" aria-label="Anterior">
+                <svg viewBox="0 0 24 24">
+                  <path d="M19 20 9 12l10-8v16ZM5 19V5"/>
+                </svg>
+              </button>
+
+              <button class="control-button play-button" aria-label="Pausar">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 5v14M16 5v14"/>
+                </svg>
+              </button>
+
+              <button class="control-button" aria-label="Siguiente">
+                <svg viewBox="0 0 24 24">
+                  <path d="m5 4 10 8-10 8V4Zm14 1v14"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="notch-blur" aria-hidden="true"></div>
+      <div class="home-indicator" aria-hidden="true"></div>
+    </div>
+
+    <div class="palette" aria-label="Seleccionar color del iPhone">
+      <label for="deep-purple" class="swatch purple" title="Deep Purple"></label>
+      <label for="gold" class="swatch gold-swatch" title="Gold"></label>
+      <label for="space-black" class="swatch black-swatch" title="Space Black"></label>
+      <label for="silver" class="swatch silver-swatch" title="Silver"></label>
+    </div>
+  </main>
+</body>
+</html>

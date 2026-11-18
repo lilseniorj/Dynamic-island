@@ -1,0 +1,8 @@
+# Sistema
+.DS_Store
+
+# Editor (configuración personal)
+.vscode/
+
+# Capturas de pruebas automatizadas
+.playwright-mcp/
