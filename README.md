@@ -2,6 +2,10 @@
 
 Recreación interactiva de la Dynamic Island del iPhone hecha con HTML, CSS y JavaScript sin dependencias. La isla cambia de forma con animaciones de resorte (*springs*) como las de iOS, muestra varias actividades a la vez y responde a toques y gestos.
 
+**Demo en vivo: [lilseniorj.github.io/Dynamic-island](https://lilseniorj.github.io/Dynamic-island/)**
+
+![Vista previa de la Dynamic Island](preview.png)
+
 > Autor: **LilSeniorJ**
 
 ## Características
@@ -66,6 +70,17 @@ python3 -m http.server 8000
 
 **Navegadores:** versiones actuales de Chrome, Edge, Safari y Firefox. Usa `:has()`, `inert`, `color-mix()` y la Web Animations API.
 
+## Deploy en GitHub Pages
+
+Es un sitio estático sin build, así que se publica tal cual desde la rama `main`:
+
+1. Sube los cambios: `git push -u origin main`.
+2. En GitHub, abre **Settings → Pages**.
+3. En **Build and deployment**, elige **Deploy from a branch**, rama `main` y carpeta `/ (root)`, y guarda.
+4. En uno o dos minutos queda en `https://lilseniorj.github.io/Dynamic-island/`.
+
+Cada `push` a `main` vuelve a publicar el sitio. El archivo `.nojekyll` evita que GitHub procese los archivos con Jekyll, y `preview.png` es la imagen que aparece al compartir el enlace.
+
 ## Estructura
 
 ```
@@ -110,4 +125,4 @@ Cada vista expandida o de alerta tiene siempre su tamaño final y está centrada
 - [ ] Audio real con `<audio>` y Media Session API.
 - [ ] Más actividades: navegación, grabación de pantalla, Apple Pay.
 - [ ] Efecto "goo" al separarse la burbuja de la isla.
-- [ ] Deploy en GitHub Pages.
+- [x] Deploy en GitHub Pages.
